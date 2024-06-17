@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Micropost;
+use App\Models\User;
 
 class MicropostsController extends Controller
 {
@@ -59,5 +60,4 @@ class MicropostsController extends Controller
         return back()
             ->with('Delete Failed');
     }
-
 }

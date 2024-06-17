@@ -7,6 +7,7 @@ use App\Http\Controllers\UsersController; // 追記
 use App\Http\Controllers\MicropostsController; //追記
 
 use App\Http\Controllers\UserFollowController;  // 追記
+use App\Http\Controllers\FavoritesController;  // 追記
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,12 @@ Route::group(['middleware' => ['auth']], function () {
     
     //Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('microposts', MicropostsController::class, ['only' => ['store', 'destroy']]);
+    
+    Route::prefix('microposts/{id}')->group(function() {
+        Route::post('favorites', [FavoritesController::class, 'store'])->name('users.favorite');
+        Route::delete('unfavorite', [FavoritesController::class, 'destroy'])->name('users.unfavorite');
+        Route::get('favorites', [FavoritesController::class, 'favorites'])->name('favorites.favorites');
+    });
 });
 
 require __DIR__.'/auth.php';
