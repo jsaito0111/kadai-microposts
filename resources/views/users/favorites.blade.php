@@ -11,7 +11,6 @@
             @include('users.navtabs')
             {{-- 投稿一覧 --}}
             @include('microposts.favorites')
-            ここをどうしようか？？？？
         </div>
     </div>
 @endsection
