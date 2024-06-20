@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for kadai-microposts-jsaito-add on 2024-06-20T02:45:25Z
+# fly.toml app configuration file generated for kadai-microposts-jsaito-add on 2024-06-20T03:33:28Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -16,7 +16,7 @@ console_command = 'php /var/www/html/artisan tinker'
   APP_DEBUG = 'false'
   APP_ENV = 'production'
   APP_NAME = 'Laravel'
-  APP_URL = 'https://kadai-microposts-jsaito.fly.dev/'
+  APP_URL = 'https://kadai-microposts-jsaito-add.fly.dev/'
   DB_CONNECTION = 'pgsql'
   DB_DATABASE = 'postgres'
   DB_HOST = 'aws-0-ap-northeast-1.pooler.supabase.com'
