@@ -8,6 +8,7 @@ use App\Http\Controllers\MicropostsController; //追記
 
 use App\Http\Controllers\UserFollowController;  // 追記
 use App\Http\Controllers\FavoritesController;  // 追記
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ use App\Http\Controllers\FavoritesController;  // 追記
 Route::get('/', [MicropostsController::class, 'index']);
 
 Route::get('/dashboard', [MicropostsController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+Route::get('/messages/{userId}', [MessageController::class, 'index'])->name('messages.index');
+Route::post('/messages/{userId}', [MessageController::class, 'send'])->name('messages.send');
 
 Route::group(['middleware' => ['auth']], function () {
     // 追記ここから
@@ -46,6 +50,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('unfavorite', [FavoritesController::class, 'destroy'])->name('users.unfavorite');
         Route::get('favorites', [FavoritesController::class, 'favorites'])->name('favorites.favorites');
     });
+    
+    Route::put('microposts/{id}', [MessagesController::class, 'update']);
 });
 
 require __DIR__.'/auth.php';

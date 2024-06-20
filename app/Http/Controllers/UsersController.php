@@ -20,6 +20,16 @@ class UsersController extends Controller
             'users' => $users
         ]);
     }
+    public function dm()
+    {
+        // ユーザー一覧をidの降順で取得
+        $users = $user->followings()->User::orderBy('id', 'desc')->paginate(10);
+        
+        // ユーザー一覧ビューでそれを表示
+        return view('users.index', [
+            'users' => $users
+        ]);
+    }
     
     public function show($id)
     {

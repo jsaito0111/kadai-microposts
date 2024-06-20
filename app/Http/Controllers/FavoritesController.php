@@ -68,7 +68,7 @@ class FavoritesController extends Controller
         $user->loadRelationshipCounts();
 
         // ユーザーのフォロワー一覧を取得
-        $favorites = $user->favorites()->paginate(10);
+        $favorites = $user->favorites()->paginate(15);
         // フォロワー一覧ビューでそれらを表示
         return view('users.favorites', [
             'user' => $user,

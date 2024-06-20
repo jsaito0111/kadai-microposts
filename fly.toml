@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for kadai-microposts-jsaito on 2024-06-17T00:55:12Z
+# fly.toml app configuration file generated for kadai-microposts-jsaito-add on 2024-06-20T02:45:25Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'kadai-microposts-jsaito'
+app = 'kadai-microposts-jsaito-add'
 primary_region = 'nrt'
 console_command = 'php /var/www/html/artisan tinker'
 
@@ -13,15 +13,15 @@ console_command = 'php /var/www/html/artisan tinker'
     PHP_VERSION = '8.2'
 
 [env]
+  APP_DEBUG = 'false'
+  APP_ENV = 'production'
   APP_NAME = 'Laravel'
-  APP_DEBUG = false
   APP_URL = 'https://kadai-microposts-jsaito.fly.dev/'
   DB_CONNECTION = 'pgsql'
-  DB_HOST='aws-0-ap-northeast-1.pooler.supabase.com'
-  DB_PORT=6543
-  DB_DATABASE='postgres'
-  DB_USERNAME='postgres.gvfwhpkbrhtqubqmqkmf'
-  APP_ENV = 'production'
+  DB_DATABASE = 'postgres'
+  DB_HOST = 'aws-0-ap-northeast-1.pooler.supabase.com'
+  DB_PORT = '6543'
+  DB_USERNAME = 'postgres.afxeolwadbdmmllginmx'
   LOG_CHANNEL = 'stderr'
   LOG_LEVEL = 'info'
   LOG_STDERR_FORMATTER = 'Monolog\Formatter\JsonFormatter'
