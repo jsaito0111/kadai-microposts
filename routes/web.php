@@ -46,9 +46,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('microposts', MicropostsController::class, ['only' => ['store', 'destroy']]);
     
     Route::prefix('microposts/{id}')->group(function() {
-        Route::post('favorites', [FavoritesController::class, 'store'])->name('users.favorite');
-        Route::delete('unfavorite', [FavoritesController::class, 'destroy'])->name('users.unfavorite');
+        Route::post('favorites', [FavoritesController::class, 'store'])->name('users.favorites');
+        Route::delete('unfavorite', [FavoritesController::class, 'destroy'])->name('users.unfavorites');
         Route::get('favorites', [FavoritesController::class, 'favorites'])->name('favorites.favorites');
+         Route::get('favorites', [FavoritesController::class, 'favorites'])->name('users.favorites');
     });
     
     Route::put('microposts/{id}', [MessagesController::class, 'update']);

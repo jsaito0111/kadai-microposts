@@ -1,6 +1,6 @@
 @if (Auth::user()->is_favorite($user->id))
     {{-- アンフォローボタンのフォーム --}}
-    <form method="POST" action="{{ route('users.unfavorite', $user->id) }}">
+    <form method="POST" action="{{ route('users.unfavorites', $user->id) }}">
         @csrf
         @method('DELETE')
         <div>
@@ -13,7 +13,7 @@
     </form>
 @else
     {{-- フォローボタンのフォーム --}}
-    <form method="POST" action="{{ route('users.favorite', $user->id) }}">
+    <form method="POST" action="{{ route('users.favorites', $user->id) }}">
         @csrf
         <div>
         <button type="submit" id="searchsubmit" value="Search"class="btn btn-ghost normal-case"><i class="icon-search">

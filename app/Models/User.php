@@ -133,8 +133,12 @@ class User extends Authenticatable
         $userIds = $this->followings()->pluck('users.id')->toArray();
         // このユーザーのidもその配列に追加
         $userIds[] = $this->id;
+        
+        $followerIds = $this -> followers()->pluck('users.id')->toArray();
+        $followerIds[] = $this->id;
+        $newIds = array_intersect($userIds, $followerIds);
         // それらのユーザーが所有する投稿に絞り込む
-        return Micropost::whereIn('user_id', $userIds);
+        return Micropost::whereIn('user_id', $newIds);
     }
     
     /**

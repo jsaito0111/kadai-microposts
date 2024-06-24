@@ -12,15 +12,13 @@ class MessageController extends Controller
     public function index($userId)
     {
         $user = User::findOrFail($userId);
-        $messages = Message::where(function($query) use ($userId) {
+        $messages = Message::where(function($query) use ($userId){
                                $query->where('sender_id', auth()->id())
                                      ->where('receiver_id', $userId);
-                           })
-                           ->orWhere(function($query) use ($userId) {
+                           })->orWhere(function($query) use ($userId){
                                $query->where('sender_id', $userId)
                                      ->where('receiver_id', auth()->id());
-                           })
-                           ->get();
+                           })->get();
 
         return view('messages.index', compact('user', 'messages'));
     }
